@@ -1,13 +1,17 @@
 ```
-export DEBIAN_FRONTEND=noninteractive
-sudo apt-add-repository ppa:ubuntu-mate-dev/ppa
-sudo apt-add-repository ppa:ubuntu-mate-dev/trusty-mate
 sudo apt-get update && sudo apt-get upgrade
-sudo apt-get install --no-install-recommends ubuntu-mate-core ubuntu-mate-desktop
-sudo apt-get install mate-core mate-desktop-environment mate-notification-daemon
+export DEBIAN_FRONTEND=noninteractive
+sudo apt install -y cinnamon-desktop-environment
 sudo apt-get install xrdp
 
-sudo sed -i.bak '/fi/a #xrdp multiple users configuration \n mate-session \n' /etc/xrdp/startwm.sh
+sudo sed -i.bak '/fi/a #xrdp multiple users configuration \n cinnamon2d-session \n' /etc/xrdp/startwm.sh
+
+echo cinnamon2d-session > ~/.xsession
+echo cinnamon2d-session > ~/.Xclients 
+
+
+sudo service xrdp restart
+
 sudo ufw allow 3389/tcp
 sudo /etc/init.d/xrdp restart
 
@@ -22,9 +26,9 @@ sudo passwd charles
 sudo usermod -aG admin charles
 sudo usermod -aG sudo charles
 
+In RDP session
 
-echo mate-session> ~/.xsession
-sudo cp /home/charles/.xsession /etc/skel
+sudo snap install snap-store
 ```
 
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1
