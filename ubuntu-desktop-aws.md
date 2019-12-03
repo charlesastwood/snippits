@@ -1,3 +1,4 @@
+```
 export DEBIAN_FRONTEND=noninteractive
 sudo apt-add-repository ppa:ubuntu-mate-dev/ppa
 sudo apt-add-repository ppa:ubuntu-mate-dev/trusty-mate
@@ -24,6 +25,6 @@ sudo usermod -aG sudo charles
 
 echo mate-session> ~/.xsession
 sudo cp /home/charles/.xsession /etc/skel
-
+```
 
 https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community-1
